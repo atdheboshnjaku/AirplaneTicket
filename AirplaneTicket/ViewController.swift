@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var departureAndArrivalView: UIView!
+    @IBOutlet weak var clientAndTicketView: UIView!
+    @IBOutlet weak var userImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,7 @@ class ViewController: UIViewController {
         departureAndArrivalView.layer.shadowColor = UIColor(red: 111.0/255, green: 54.0/255, blue: 218.0/255, alpha: 1.0).cgColor
         departureAndArrivalView.layer.shadowOpacity = 0.5
         departureAndArrivalView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        departureAndArrivalView.layer.shadowRadius = 5
+        departureAndArrivalView.layer.shadowRadius = 8
         departureAndArrivalView.layer.shouldRasterize = true
         
         let radians = 2 * Double.pi / 180
@@ -30,6 +32,15 @@ class ViewController: UIViewController {
             self.departureAndArrivalView.transform = CGAffineTransform(rotationAngle: -radians)
 
         }, completion: nil)
+        
+        clientAndTicketView.layer.cornerRadius = 10
+        clientAndTicketView.layer.shadowColor = UIColor.gray.cgColor
+        clientAndTicketView.layer.shadowOpacity = 0.2
+        clientAndTicketView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        clientAndTicketView.layer.shadowRadius = 8
+        clientAndTicketView.layer.shouldRasterize = true
+        
+        userImageView.layer.cornerRadius = userImageView.frame.height / 2
         
     }
 
